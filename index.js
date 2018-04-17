@@ -18,16 +18,16 @@ app.get('/', function (req, res) {
   res.send('Team YaFaJu ! <3')
 })
 
-// Ma route pour la connexion qui retourne les login
-app.get('/connected', function(req, res){
+//Ma route pour la verification qui : Retourne les infos de l'user si c'est bon plus un status 200 /!\ TODO : NE PLUS SEND LE PASSWORLD /!\
+//                                    Retourne un message d'erreur + un status 401 si les infos sont pas bonnes
+app.get('/verify', function(req, res){
     res.header('Access-Control-Allow-Origin', '*');
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(users);
 });
 
-//Ma route pour la verification qui : Retourne les infos de l'user si c'est bon plus un status 200 /!\ TODO : NE PLUS SEND LE PASSWORLD /!\
-//                                    Retourne un message d'erreur + un status 401 si les infos sont pas bonnes
-app.post('/verify', function(req, res){
+// Ma route pour la connexion qui retourne les login
+app.post('/connected', function(req, res){
     res.header('Access-Control-Allow-Origin', '*');
     res.setHeader('Content-Type', 'application/json');
     var user = req.body;
